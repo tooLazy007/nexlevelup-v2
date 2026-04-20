@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexLevelUp | Business-Automatisierung, die funktioniert</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        :root {
+            --bg-dark: #0a0f1a;
+            --bg-card: #111827;
+            --accent: #8b5cf6;
+            --accent-light: #a78bfa;
+            --text: #f3f4f6;
+            --text-muted: #9ca3af;
+            --gradient-start: #8b5cf6;
+            --gradient-end: #06b6d4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(10, 15, 26, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+        }
+
+        .hero-bg svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff 0%, var(--accent-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--accent), var(--gradient-end));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+        }
+
+        /* Sections */
+        section {
+            padding: 8rem 5%;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 4rem;
+        }
+
+        /* Problem Section */
+        .problem {
+            background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-card) 100%);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .problem-card {
+            background: rgba(17, 24, 39, 0.8);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        .problem-card .icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .problem-card h3 {
+            margin-bottom: 1rem;
+            color: #ef4444;
+        }
+
+        /* Solution Section */
+        .solution {
+            background: var(--bg-card);
+        }
+
+        .solution-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .solution-text h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--accent-light), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .solution-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .solution-visual {
+            position: relative;
+        }
+
+        .workflow-preview {
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+        }
+
+        .workflow-node {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+        }
+
+        /* Process Section */
+        .process {
+            background: var(--bg-dark);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .step-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent), transparent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0.3;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .process-step h3 {
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .process-step p {
+            color: var(--text-muted);
+        }
+
+        /* Results Section */
+        .results {
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-dark) 100%);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent), var(--gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Team Section */
+        .team {
+            background: var(--bg-card);
+        }
+
+        .team-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .team-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 2rem;
+            border: 4px solid var(--accent);
+            box-shadow: 0 0 40px rgba(139, 92, 246, 0.3);
+        }
+
+        .team h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .team-role {
+            color: var(--accent-light);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .team p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* References Section */
+        .references {
+            background: var(--bg-dark);
+            padding: 6rem 5%;
+        }
+
+        .references-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .ref-card {
+            background: rgba(17, 24, 39, 0.6);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .ref-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .ref-card h4 {
+            color: var(--accent-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .ref-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--accent) 0%, #7c3aed 100%);
+            text-align: center;
+            padding: 6rem 5%;
+        }
+
+        .cta h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .cta p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-white {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: white;
+            color: var(--accent);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-dark);
+            padding: 4rem 5% 2rem;
+            border-top: 1px solid rgba(139, 92, 246, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            color: var(--accent-light);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: var(--text-muted);
+            text-decoration: none;
+            line-height: 2;
+        }
+
+        .footer-section a:hover {
+            color: var(--text);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(139, 92, 246, 0.1);
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .solution-content {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 5rem 5%;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">NexLevelUp</div>
+        <ul class="nav-links">
+            <li><a href="#problem">Das Problem</a></li>
+            <li><a href="#solution">Die Lösung</a></li>
+            <li><a href="#process">So funktioniert's</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                <defs>
+                    <radialGradient id="glow" cx="50%" cy="50%">
+                        <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.3"/>
+                        <stop offset="100%" stop-color="#0a0f1a" stop-opacity="0"/>
+                    </radialGradient>
+                </defs>
+                <circle cx="50" cy="50" r="40" fill="url(#glow)"/>
+            </svg>
+        </div>
+        <div class="hero-content">
+            <h1>Business-Automatisierung, die funktioniert</h1>
+            <p>Wir bauen KI-Workflows, die dein Team entlasten und dein Business skalieren – ohne den üblichen Marketing-Bullshit.</p>
+            <a href="#kontakt" class="btn-primary">Kostenloses Erstgespräch</a>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem" id="problem">
+        <h2 class="section-title fade-in">Kennst du das?</h2>
+        <p class="section-subtitle fade-in">Jeden Tag verlieren Unternehmen Stunden mit repetitiven Tasks, die keinen Mehrwert schaffen.</p>
+        
+        <div class="problem-grid">
+            <div class="problem-card fade-in">
+                <div class="icon">📊</div>
+                <h3>Daten-Chaos</h3>
+                <p>Informationen verteilt auf dutzende Tools, Excel-Tabellen und E-Mails. Keiner hat den Überblick.</p>
+            </div>
+            <div class="problem-card fade-in">
+                <div class="icon">⏰</div>
+                <h3>Zeitfresser</h3>
+                <p>30% der Arbeitszeit geht für manuelle Routineaufgaben drauf statt für strategische Arbeit.</p>
+            </div>
+            <div class="problem-card fade-in">
+                <div class="icon">🔄</div>
+                <h3>Skalierungsprobleme</h3>
+                <p>Mehr Kunden bedeuten mehr Arbeit, mehr Personal, mehr Komplexität. Wachstum fühlt sich an wie Stress.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution" id="solution">
+        <div class="solution-content">
+            <div class="solution-text fade-in">
+                <h2>Dann kam die Automatisierung</h2>
+                <p>Wir glauben nicht an Einheitslösungen. Jeder Workflow ist so individuell wie dein Business. Deshalb analysieren wir erst, automatisieren dann.</p>
+                <p>Mit n8n, Make.com und KI-Tools bauen wir Workflows, die sich an deine Prozesse anpassen – nicht umgekehrt.</p>
+                <p>Das Ergebnis: Dein Team konzentriert sich auf das, was wirklich zählt. Der Rest läuft im Hintergrund.</p>
+            </div>
+            <div class="solution-visual fade-in">
+                <div class="workflow-preview">
+                    <div class="workflow-node">
+                        <span>📥</span> E-Mail eingeht
+                    </div>
+                    <div class="workflow-node">
+                        <span>🤖</span> KI analysiert & kategorisiert
+                    </div>
+                    <div class="workflow-node">
+                        <span>📋</span> Automatisch im CRM erfasst
+                    </div>
+                    <div class="workflow-node">
+                        <span>✅</span> Team wird benachrichtigt
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <h2 class="section-title fade-in">So funktioniert's</h2>
+        <p class="section-subtitle fade-in">Keine 0815-Lösungen. Jeder Workflow ist maßgeschneidert.</p>
+        
+        <div class="process-steps">
+            <div class="process-step fade-in">
+                <span class="step-number">01</span>
+                <h3>Analyse</h3>
+                <p>Wir identifizieren deine Zeitfresser. Wo hakt es? Welche Prozesse wiederholen sich?</p>
+            </div>
+            <div class="process-step fade-in">
+                <span class="step-number">02</span>
+                <h3>Konzeption</h3>
+                <p>Wir entwerfen den optimalen Workflow. Welche Tools? Welche Integrationen?</p>
+            </div>
+            <div class="process-step fade-in">
+                <span class="step-number">03</span>
+                <h3>Umsetzung</h3>
+                <p>Wir bauen und testen. Du behältst die Kontrolle – wir die Technik.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results" id="results">
+        <h2 class="section-title fade-in">Ergebnisse, die zählen</h2>
+        <p class="section-subtitle fade-in">Konkrete Zahlen von echten Projekten</p>
+        
+        <div class="stats-grid">
+            <div class="stat-item fade-in">
+                <span class="stat-number">80%</span>
+                <span class="stat-label">weniger manuelle Arbeit</span>
+            </div>
+            <div class="stat-item fade-in">
+                <span class="stat-number">3x</span>
+                <span class="stat-label">schnellere Prozesse</span>
+            </div>
+            <div class="stat-item fade-in">
+                <span class="stat-number">&lt;5%</span>
+                <span class="stat-label">Fehlerquote (statt 50%)</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="team">
+        <div class="team-content fade-in">
+            <img src="assets/images/erhan-delice.jpg" alt="Erhan Delice" class="team-photo">
+            <h2>Hallo, ich bin Erhan</h2>
+            <p class="team-role">Gründer & KI-Automatisierungs-Spezialist</p>
+            <p>Ich habe NexLevelUp gegründet, weil ich es leid war, Unternehmen bei komplexen Projekten zuzuschauen, die eigentlich simpel sein könnten. Nach Jahren im Einzelhandel und mit meiner Leidenschaft für effiziente Prozesse helfe ich jetzt Unternehmen, Zeit und Ressourcen zu sparen.</p>
+            <p style="margin-top: 1rem;">Mein Ansatz ist pragmatisch: Funktionieren muss es. Alles andere ist sekundär.</p>
+        </div>
+    </section>
+
+    <!-- References Section -->
+    <section class="references" id="referenzen">
+        <h2 class="section-title fade-in">Referenzen</h2>
+        <p class="section-subtitle fade-in">Ein Auswahl unserer erfolgreichen Automatisierungsprojekte</p>
+        
+        <div class="references-grid">
+            <div class="ref-card fade-in">
+                <h4>Das Layout</h4>
+                <p>Marketing-Agentur aus Würzburg. Automatisierung von Lead-Qualifizierung und CRM-Integration.</p>
+            </div>
+            <div class="ref-card fade-in">
+                <h4>Immobilien LPM</h4>
+                <p>Digitalisierung von Immobilien-Marketing-Prozessen. Automatisierte Schaufenster-Displays und Kunden-Kommunikation.</p>
+            </div>
+            <div class="ref-card fade-in">
+                <h4>Logo Digitalisierung</h4>
+                <p>Workflow-Automatisierung für Design-Prozesse. Schnellere Abwicklung von Kundenprojekten.</p>
+            </div>
+            <div class="ref-card fade-in">
+                <h4>AWG Digital Hub</h4>
+                <p>Integration von E-Commerce und Warenwirtschaft. Automatisierte Bestell- und Lagerverwaltung.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="kontakt">
+        <h2>Bereit für den nächsten Level?</h2>
+        <p>Lass uns in einem kostenlosen Erstgespräch herausfinden, wo dein Potenzial liegt. Keine Verpflichtung, nur ehrliche Beratung.</p>
+        <a href="mailto:erhandelice1987@gmail.com" class="btn-white">Termin vereinbaren</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>NexLevelUp</h4>
+                <p>Business-Automatisierung, die funktioniert.<br>KI-Workflows für Unternehmen, die wachsen wollen.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Kontakt</h4>
+                <p>
+                    Erhan Delice<br>
+                    <a href="mailto:erhandelice1987@gmail.com">erhandelice1987@gmail.com</a><br>
+                    Würzburg, Deutschland
+                </p>
+            </div>
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <p>
+                    <a href="#home">Start</a><br>
+                    <a href="#problem">Das Problem</a><br>
+                    <a href="#solution">Die Lösung</a><br>
+                    <a href="#process">Prozess</a><br>
+                    <a href="#kontakt">Kontakt</a>
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 NexLevelUp. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <script>
+        // GSAP ScrollTrigger Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Fade in elements on scroll
+        gsap.utils.toArray('.fade-in').forEach((element) => {
+            gsap.fromTo(element, 
+                {
+                    opacity: 0,
+                    y: 30
+                },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: element,
+                        start: 'top 85%',
+                        toggleActions: 'play none none none'
+                    }
+                }
+            );
+        });
+
+        // Hero content animation on load
+        gsap.from('.hero-content', {
+            opacity: 0,
+            y: 50,
+            duration: 1.2,
+            ease: 'power3.out',
+            delay: 0.3
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
