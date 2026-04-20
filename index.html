@@ -3,22 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexLevelUp | Business-Automatisierung, die funktioniert</title>
+    <meta name="description" content="NexLevelUp automatisiert dein Business mit KI-Workflows. Spezialisiert auf n8n, Make.com und ChatGPT-Integrationen für Unternehmen. Maßgeschneiderte Automatisierungslösungen.">
+    <meta name="keywords" content="Business Automatisierung, KI Workflows, n8n, Make.com, ChatGPT Integration, Workflow Automatisierung, Deutschland">
+    <meta name="author" content="NexLevelUp - Erhan Delice">
+    <meta name="robots" content="index, follow">
+    <!-- Canonical -->
+    <link rel="canonical" href="https://nexlevelup.de/">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nexlevelup.de/">
+    <meta property="og:title" content="NexLevelUp | Business-Automatisierung die funktioniert">
+    <meta property="og:description" content="Wir automatisieren dein Business mit KI-Workflows. Maßgeschneiderte Lösungen mit n8n, Make.com und ChatGPT.">
+    <meta property="og:image" content="https://nexlevelup.de/assets/images/og-image.jpg">
+    <meta property="og:locale" content="de_DE">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="NexLevelUp | Business-Automatisierung die funktioniert">
+    <meta name="twitter:description" content="Wir automatisieren dein Business mit KI-Workflows.">
+    <meta name="twitter:image" content="https://nexlevelup.de/assets/images/og-image.jpg">
+    
+    <title>NexLevelUp | Business-Automatisierung die funktioniert</title>
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
     <style>
         :root {
-            --bg-dark: #0a0f1a;
-            --bg-card: #111827;
-            --accent: #8b5cf6;
-            --accent-light: #a78bfa;
-            --text: #f3f4f6;
-            --text-muted: #9ca3af;
-            --gradient-start: #8b5cf6;
-            --gradient-end: #06b6d4;
+            /* Colors */
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: rgba(26, 26, 46, 0.6);
+            --accent-purple: #7c3aed;
+            --accent-purple-light: #8b5cf6;
+            --accent-cyan: #06b6d4;
+            --accent-cyan-light: #22d3ee;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border: rgba(139, 92, 246, 0.2);
+            --border-hover: rgba(139, 92, 246, 0.4);
+            --gradient-primary: linear-gradient(135deg, var(--accent-purple) 0%, var(--accent-cyan) 100%);
+            --gradient-glow: radial-gradient(ellipse at center, rgba(124, 58, 237, 0.15) 0%, transparent 70%);
         }
 
         * {
@@ -29,41 +60,64 @@
 
         html {
             scroll-behavior: smooth;
+            font-size: 16px;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background: var(--bg-dark);
-            color: var(--text);
+            background: var(--bg-primary);
+            color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        h1, h2, h3, h4 {
+        h1, h2, h3, h4, h5, h6 {
             font-family: 'Space Grotesk', sans-serif;
             font-weight: 600;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
         }
 
         /* Navigation */
-        nav {
+        .nav {
             position: fixed;
             top: 0;
-            width: 100%;
-            padding: 1.5rem 5%;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 5%;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 1000;
-            background: rgba(10, 15, 26, 0.8);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(139, 92, 246, 0.1);
         }
 
-        .logo {
+        .nav-logo {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 1.5rem;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--accent), var(--gradient-end));
+            background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -71,31 +125,78 @@
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             list-style: none;
         }
 
         .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
+            color: var(--text-secondary);
             font-weight: 500;
-            transition: color 0.3s;
+            font-size: 0.95rem;
+            position: relative;
         }
 
         .nav-links a:hover {
-            color: var(--accent-light);
+            color: var(--text-primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.4);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
         }
 
         /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            text-align: center;
-            padding: 0 5%;
+            justify-content: center;
             position: relative;
+            padding: 120px 5% 80px;
             overflow: hidden;
         }
 
@@ -103,171 +204,351 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.3;
+            right: 0;
+            bottom: 0;
+            background: 
+                var(--gradient-glow),
+                radial-gradient(ellipse at 20% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(124, 58, 237, 0.1) 0%, transparent 50%);
+            z-index: 0;
         }
 
-        .hero-bg svg {
+        #particles-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
+            z-index: 1;
+            opacity: 0.6;
         }
 
         .hero-content {
             position: relative;
-            z-index: 10;
+            z-index: 2;
             max-width: 900px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(124, 58, 237, 0.1);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            color: var(--accent-purple-light);
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            line-height: 1.1;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #fff 0%, var(--accent-light) 100%);
+            line-height: 1.1;
+        }
+
+        .hero h1 .gradient-text {
+            background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .hero p {
-            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-            color: var(--text-muted);
-            margin-bottom: 2.5rem;
+        .hero-description {
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            color: var(--text-secondary);
             max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto 2.5rem;
+            line-height: 1.7;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
         }
 
         .btn-primary {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, var(--accent), var(--gradient-end));
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gradient-primary);
             color: white;
-            text-decoration: none;
+            padding: 1rem 2rem;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 1.1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
+            font-size: 1rem;
             border: none;
             cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+            box-shadow: 0 20px 40px rgba(124, 58, 237, 0.4);
         }
 
-        /* Sections */
-        section {
-            padding: 8rem 5%;
-            position: relative;
-        }
-
-        .section-title {
-            font-size: clamp(2rem, 5vw, 3rem);
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .section-subtitle {
-            color: var(--text-muted);
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto 4rem;
-        }
-
-        /* Problem Section */
-        .problem {
-            background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-card) 100%);
-        }
-
-        .problem-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .problem-card {
-            background: rgba(17, 24, 39, 0.8);
-            border: 1px solid rgba(139, 92, 246, 0.2);
-            border-radius: 20px;
-            padding: 2.5rem;
-            text-align: center;
-        }
-
-        .problem-card .icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .problem-card h3 {
-            margin-bottom: 1rem;
-            color: #ef4444;
-        }
-
-        /* Solution Section */
-        .solution {
-            background: var(--bg-card);
-        }
-
-        .solution-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+        .btn-secondary {
+            display: inline-flex;
             align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            color: var(--text-primary);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        .solution-text h2 {
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--accent-light), var(--gradient-end));
+        .btn-secondary:hover {
+            border-color: var(--accent-purple);
+            background: rgba(124, 58, 237, 0.1);
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        .solution-text p {
+        .hero-stat-label {
+            font-size: 0.875rem;
             color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
+            margin-top: 0.25rem;
         }
 
-        .solution-visual {
+        /* Section Styles */
+        .section {
+            padding: 100px 5%;
             position: relative;
         }
 
-        .workflow-preview {
-            background: rgba(139, 92, 246, 0.1);
-            border: 1px solid rgba(139, 92, 246, 0.3);
-            border-radius: 20px;
-            padding: 2rem;
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
         }
 
-        .workflow-node {
+        .section-tag {
+            display: inline-block;
+            background: rgba(124, 58, 237, 0.1);
+            border: 1px solid var(--border);
+            color: var(--accent-purple-light);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .section h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* Social Proof */
+        .social-proof {
+            background: var(--bg-secondary);
+            padding: 60px 5%;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .social-proof-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .social-proof-text {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .logos-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .logo-item {
+            opacity: 0.5;
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .logo-item:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+            color: var(--text-primary);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(124, 58, 237, 0.1);
+            border-radius: 16px;
             display: flex;
             align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--gradient-primary);
+            transform: scale(1.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-primary);
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-link {
+            color: var(--accent-cyan);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .service-link:hover {
+            gap: 0.75rem;
         }
 
         /* Process Section */
-        .process {
-            background: var(--bg-dark);
+        .process-section {
+            background: var(--bg-secondary);
         }
 
         .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
             max-width: 1200px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
         }
 
         .process-step {
@@ -276,54 +557,88 @@
             position: relative;
         }
 
+        .process-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -1rem;
+            width: 2rem;
+            height: 2px;
+            background: var(--border);
+        }
+
         .step-number {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 5rem;
+            font-size: 4rem;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--accent), transparent);
+            background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            opacity: 0.3;
+            opacity: 0.2;
             position: absolute;
             top: 0;
             left: 50%;
             transform: translateX(-50%);
         }
 
+        .step-content {
+            position: relative;
+            z-index: 1;
+            margin-top: 2rem;
+        }
+
+        .step-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(124, 58, 237, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin: 0 auto 1.5rem;
+        }
+
         .process-step h3 {
-            margin-top: 3rem;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
         }
 
         .process-step p {
-            color: var(--text-muted);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
         }
 
         /* Results Section */
-        .results {
-            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-dark) 100%);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
+        .results-grid {
             max-width: 1000px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
         }
 
-        .stat-item {
+        .result-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem;
             text-align: center;
-            padding: 2rem;
+            transition: all 0.3s ease;
         }
 
-        .stat-number {
+        .result-card:hover {
+            border-color: var(--accent-purple);
+            transform: translateY(-5px);
+        }
+
+        .result-number {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--accent), var(--gradient-end));
+            background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -331,424 +646,681 @@
             margin-bottom: 0.5rem;
         }
 
-        .stat-label {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-        }
-
-        /* Team Section */
-        .team {
-            background: var(--bg-card);
-        }
-
-        .team-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .team-photo {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 2rem;
-            border: 4px solid var(--accent);
-            box-shadow: 0 0 40px rgba(139, 92, 246, 0.3);
-        }
-
-        .team h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .team-role {
-            color: var(--accent-light);
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-
-        .team p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        /* References Section */
-        .references {
-            background: var(--bg-dark);
-            padding: 6rem 5%;
-        }
-
-        .references-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .ref-card {
-            background: rgba(17, 24, 39, 0.6);
-            border: 1px solid rgba(139, 92, 246, 0.2);
-            border-radius: 16px;
-            padding: 2rem;
-            transition: transform 0.3s, border-color 0.3s;
-        }
-
-        .ref-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-        }
-
-        .ref-card h4 {
-            color: var(--accent-light);
-            margin-bottom: 0.5rem;
-        }
-
-        .ref-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
+        .result-label {
+            color: var(--text-secondary);
+            font-size: 1rem;
         }
 
         /* CTA Section */
-        .cta {
-            background: linear-gradient(135deg, var(--accent) 0%, #7c3aed 100%);
+        .cta-section {
+            background: var(--bg-secondary);
             text-align: center;
-            padding: 6rem 5%;
+            position: relative;
+            overflow: hidden;
         }
 
-        .cta h2 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            margin-bottom: 1.5rem;
-            color: white;
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.1) 0%, transparent 70%);
+            pointer-events: none;
         }
 
-        .cta p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.2rem;
-            margin-bottom: 2.5rem;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .btn-white {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: white;
-            color: var(--accent);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .btn-white:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--bg-dark);
-            padding: 4rem 5% 2rem;
-            border-top: 1px solid rgba(139, 92, 246, 0.1);
-        }
-
-        .footer-content {
-            max-width: 1200px;
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
         }
 
-        .footer-section h4 {
-            color: var(--accent-light);
+        .cta-section h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
             margin-bottom: 1rem;
         }
 
-        .footer-section p, .footer-section a {
-            color: var(--text-muted);
-            text-decoration: none;
-            line-height: 2;
+        .cta-section p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
         }
 
-        .footer-section a:hover {
-            color: var(--text);
+        /* Footer */
+        .footer {
+            background: var(--bg-primary);
+            border-top: 1px solid var(--border);
+            padding: 80px 5% 40px;
+        }
+
+        .footer-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-brand h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            max-width: 300px;
+        }
+
+        .footer-links h4 {
+            color: var(--text-primary);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-cyan);
         }
 
         .footer-bottom {
-            text-align: center;
+            max-width: 1400px;
+            margin: 0 auto;
             padding-top: 2rem;
-            border-top: 1px solid rgba(139, 92, 246, 0.1);
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p {
             color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(124, 58, 237, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--accent-purple);
+            border-color: var(--accent-purple);
+            transform: translateY(-3px);
         }
 
         /* Responsive */
+        @media (max-width: 1024px) {
+            .process-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-step:not(:last-child)::after {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
             }
 
-            .solution-content {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .hero {
+                padding: 100px 5% 60px;
+            }
+
+            .hero-cta-group {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero-stats {
+                gap: 2rem;
+            }
+
+            .services-grid {
                 grid-template-columns: 1fr;
             }
 
-            section {
-                padding: 5rem 5%;
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
             }
         }
 
-        /* Animations */
-        .fade-in {
+        /* Scroll Animations */
+        .reveal {
             opacity: 0;
             transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav>
-        <div class="logo">NexLevelUp</div>
-        <ul class="nav-links">
-            <li><a href="#problem">Das Problem</a></li>
-            <li><a href="#solution">Die Lösung</a></li>
-            <li><a href="#process">So funktioniert's</a></li>
-            <li><a href="#team">Team</a></li>
-            <li><a href="#kontakt">Kontakt</a></li>
-        </ul>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">NexLevelUp</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pages/services.html">Services</a></li>
+                <li><a href="pages/pricing.html">Pricing</a></li>
+                <li><a href="pages/team.html">Team</a></li>
+                <li><a href="pages/blog.html">Blog</a></li>
+            </ul>
+            <a href="#contact" class="nav-cta">Kostenloses Gespräch</a>
+            <button class="mobile-menu-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-bg">
-            <svg viewBox="0 0 100 100" preserveAspectRatio="none">
-                <defs>
-                    <radialGradient id="glow" cx="50%" cy="50%">
-                        <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.3"/>
-                        <stop offset="100%" stop-color="#0a0f1a" stop-opacity="0"/>
-                    </radialGradient>
-                </defs>
-                <circle cx="50" cy="50" r="40" fill="url(#glow)"/>
-            </svg>
-        </div>
-        <div class="hero-content">
-            <h1>Business-Automatisierung, die funktioniert</h1>
-            <p>Wir bauen KI-Workflows, die dein Team entlasten und dein Business skalieren – ohne den üblichen Marketing-Bullshit.</p>
-            <a href="#kontakt" class="btn-primary">Kostenloses Erstgespräch</a>
-        </div>
-    </section>
-
-    <!-- Problem Section -->
-    <section class="problem" id="problem">
-        <h2 class="section-title fade-in">Kennst du das?</h2>
-        <p class="section-subtitle fade-in">Jeden Tag verlieren Unternehmen Stunden mit repetitiven Tasks, die keinen Mehrwert schaffen.</p>
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <canvas id="particles-canvas"></canvas>
         
-        <div class="problem-grid">
-            <div class="problem-card fade-in">
-                <div class="icon">📊</div>
-                <h3>Daten-Chaos</h3>
-                <p>Informationen verteilt auf dutzende Tools, Excel-Tabellen und E-Mails. Keiner hat den Überblick.</p>
+        <div class="hero-content">
+            <div class="hero-badge">
+                KI-Automatisierung für Unternehmen
             </div>
-            <div class="problem-card fade-in">
-                <div class="icon">⏰</div>
-                <h3>Zeitfresser</h3>
-                <p>30% der Arbeitszeit geht für manuelle Routineaufgaben drauf statt für strategische Arbeit.</p>
+            
+            <h1>
+                Lass Maschinen die
+                <br>
+                <span class="gradient-text">langweilige Arbeit</span> machen
+            </h1>
+            
+            <p class="hero-description">
+                Wir automatisieren dein Business mit intelligenten Workflows. 
+                Spezialisiert auf n8n, Make.com und ChatGPT-Integrationen – 
+                maßgeschneidert für deine Prozesse.
+            </p>
+            
+            <div class="hero-cta-group">
+                <a href="#contact" class="btn-primary">
+                    Erstgespräch buchen
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#services" class="btn-secondary">
+                    Services entdecken
+                </a>
             </div>
-            <div class="problem-card fade-in">
-                <div class="icon">🔄</div>
-                <h3>Skalierungsprobleme</h3>
-                <p>Mehr Kunden bedeuten mehr Arbeit, mehr Personal, mehr Komplexität. Wachstum fühlt sich an wie Stress.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Solution Section -->
-    <section class="solution" id="solution">
-        <div class="solution-content">
-            <div class="solution-text fade-in">
-                <h2>Dann kam die Automatisierung</h2>
-                <p>Wir glauben nicht an Einheitslösungen. Jeder Workflow ist so individuell wie dein Business. Deshalb analysieren wir erst, automatisieren dann.</p>
-                <p>Mit n8n, Make.com und KI-Tools bauen wir Workflows, die sich an deine Prozesse anpassen – nicht umgekehrt.</p>
-                <p>Das Ergebnis: Dein Team konzentriert sich auf das, was wirklich zählt. Der Rest läuft im Hintergrund.</p>
-            </div>
-            <div class="solution-visual fade-in">
-                <div class="workflow-preview">
-                    <div class="workflow-node">
-                        <span>📥</span> E-Mail eingeht
-                    </div>
-                    <div class="workflow-node">
-                        <span>🤖</span> KI analysiert & kategorisiert
-                    </div>
-                    <div class="workflow-node">
-                        <span>📋</span> Automatisch im CRM erfasst
-                    </div>
-                    <div class="workflow-node">
-                        <span>✅</span> Team wird benachrichtigt
-                    </div>
+            
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-number">150+</div>
+                    <div class="hero-stat-label">Workflows erstellt</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">50+</div>
+                    <div class="hero-stat-label">Kunden</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">4.9/5</div>
+                    <div class="hero-stat-label">Kundenbewertung</div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <div class="social-proof-content">
+            <p class="social-proof-text">Vertraut von Teams bei</p>
+            
+            <div class="logos-grid">
+                <div class="logo-item">Das Layout</div>
+                <div class="logo-item">Immobilien LPM</div>
+                <div class="logo-item">Logo Digitalisierung</div>
+                <div class="logo-item">AWG Digital Hub</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="section-header">
+            <span class="section-tag">Unsere Services</span>
+            <h2>Was wir für dich automatisieren</h2>
+            <p class="section-description">
+                Von einfachen Workflows bis zu komplexen Integrationen – 
+                wir finden die perfekte Lösung für deine Anforderungen.
+            </p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🤖</div>
+                <h3>KI-Integration</h3>
+                <p>ChatGPT, Claude und andere KI-Modelle nahtlos in deine Workflows integrieren. Intelligente Textverarbeitung, Klassifizierung und Automatisierung.</p>
+                <a href="pages/service-ki-loesungen.html" class="service-link">
+                    Mehr erfahren →
+                </a>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">⚙️</div>
+                <h3>Workflow-Automatisierung</h3>
+                <p>Wiederkehrende Aufgaben mit n8n, Make.com und Zapier automatisieren. Zeit sparen und Fehler minimieren durch intelligente Prozessketten.</p>
+                <a href="pages/service-workflow-automation.html" class="service-link">
+                    Mehr erfahren →
+                </a>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Daten-Hubs</h3>
+                <p>Zentrale Datenverwaltung mit Airtable, Notion oder Datenbanken. Informationen aus verschiedenen Quellen zusammenführen und nutzbar machen.</p>
+                <a href="pages/services.html" class="service-link">
+                    Mehr erfahren →
+                </a>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3>Lead-Automatisierung</h3>
+                <p>Von der ersten Kontaktaufnahme bis zur qualifizierten Übergabe an den Vertrieb. Lead-Generierung und -Pflege vollständig automatisiert.</p>
+                <a href="pages/service-leadgenerierung.html" class="service-link">
+                    Mehr erfahren →
+                </a>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">💬</div>
+                <h3>Kundenservice-Automatisierung</h3>
+                <p>24/7 verfügbare Chatbots und Voice Agents. Antworten auf häufige Fragen automatisch und komplexere Anliegen an Menschen eskalieren.</p>
+                <a href="pages/service-kundenservice.html" class="service-link">
+                    Mehr erfahren →
+                </a>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">📈</div>
+                <h3>Buchhaltungsautomatisierung</h3>
+                <p>Rechnungen, Belege und Zahlungsabwicklung automatisch verarbeiten. Integration mit DATEV, Lexware und anderen Systemen.</p>
+                <a href="pages/service-buchhaltung.html" class="service-link">
+                    Mehr erfahren →
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Process Section -->
-    <section class="process" id="process">
-        <h2 class="section-title fade-in">So funktioniert's</h2>
-        <p class="section-subtitle fade-in">Keine 0815-Lösungen. Jeder Workflow ist maßgeschneidert.</p>
+    <section class="section process-section">
+        <div class="section-header">
+            <span class="section-tag">Unser Prozess</span>
+            <h2>So funktioniert's</h2>
+            <p class="section-description">
+                Keine 0815-Lösungen. Jeder Workflow ist so individuell wie dein Business.
+            </p>
+        </div>
         
         <div class="process-steps">
-            <div class="process-step fade-in">
+            <div class="process-step">
                 <span class="step-number">01</span>
-                <h3>Analyse</h3>
-                <p>Wir identifizieren deine Zeitfresser. Wo hakt es? Welche Prozesse wiederholen sich?</p>
+                <div class="step-content">
+                    <div class="step-icon">🔍</div>
+                    <h3>Analyse</h3>
+                    <p>Wir identifizieren deine Zeitfresser und Potenziale in einem kostenlosen Erstgespräch.</p>
+                </div>
             </div>
-            <div class="process-step fade-in">
+            
+            <div class="process-step">
                 <span class="step-number">02</span>
-                <h3>Konzeption</h3>
-                <p>Wir entwerfen den optimalen Workflow. Welche Tools? Welche Integrationen?</p>
+                <div class="step-content">
+                    <div class="step-icon">📋</div>
+                    <h3>Konzeption</h3>
+                    <p>Wir entwerfen den optimalen Workflow mit den passenden Tools und Integrationen.</p>
+                </div>
             </div>
-            <div class="process-step fade-in">
+            
+            <div class="process-step">
                 <span class="step-number">03</span>
-                <h3>Umsetzung</h3>
-                <p>Wir bauen und testen. Du behältst die Kontrolle – wir die Technik.</p>
+                <div class="step-content">
+                    <div class="step-icon">🛠️</div>
+                    <h3>Umsetzung</h3>
+                    <p>Wir bauen und testen den Workflow. Du behältst die Kontrolle – wir die Technik.</p>
+                </div>
+            </div>
+            
+            <div class="process-step">
+                <span class="step-number">04</span>
+                <div class="step-content">
+                    <div class="step-icon">🚀</div>
+                    <h3>Optimierung</h3>
+                    <p>Kontinuierliche Verbesserung und Support, damit deine Automatisierung mitwächst.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Results Section -->
-    <section class="results" id="results">
-        <h2 class="section-title fade-in">Ergebnisse, die zählen</h2>
-        <p class="section-subtitle fade-in">Konkrete Zahlen von echten Projekten</p>
-        
-        <div class="stats-grid">
-            <div class="stat-item fade-in">
-                <span class="stat-number">80%</span>
-                <span class="stat-label">weniger manuelle Arbeit</span>
-            </div>
-            <div class="stat-item fade-in">
-                <span class="stat-number">3x</span>
-                <span class="stat-label">schnellere Prozesse</span>
-            </div>
-            <div class="stat-item fade-in">
-                <span class="stat-number">&lt;5%</span>
-                <span class="stat-label">Fehlerquote (statt 50%)</span>
-            </div>
+    <section class="section">
+        <div class="section-header">
+            <span class="section-tag">Ergebnisse</span>
+            <h2>Konkrete Zahlen</h2>
+            <p class="section-description">
+                Was unsere Kunden durch Automatisierung erreichen.
+            </p>
         </div>
-    </section>
-
-    <!-- Team Section -->
-    <section class="team" id="team">
-        <div class="team-content fade-in">
-            <img src="assets/images/erhan-delice.jpg" alt="Erhan Delice" class="team-photo">
-            <h2>Hallo, ich bin Erhan</h2>
-            <p class="team-role">Gründer & KI-Automatisierungs-Spezialist</p>
-            <p>Ich habe NexLevelUp gegründet, weil ich es leid war, Unternehmen bei komplexen Projekten zuzuschauen, die eigentlich simpel sein könnten. Nach Jahren im Einzelhandel und mit meiner Leidenschaft für effiziente Prozesse helfe ich jetzt Unternehmen, Zeit und Ressourcen zu sparen.</p>
-            <p style="margin-top: 1rem;">Mein Ansatz ist pragmatisch: Funktionieren muss es. Alles andere ist sekundär.</p>
-        </div>
-    </section>
-
-    <!-- References Section -->
-    <section class="references" id="referenzen">
-        <h2 class="section-title fade-in">Referenzen</h2>
-        <p class="section-subtitle fade-in">Ein Auswahl unserer erfolgreichen Automatisierungsprojekte</p>
         
-        <div class="references-grid">
-            <div class="ref-card fade-in">
-                <h4>Das Layout</h4>
-                <p>Marketing-Agentur aus Würzburg. Automatisierung von Lead-Qualifizierung und CRM-Integration.</p>
+        <div class="results-grid">
+            <div class="result-card">
+                <span class="result-number">80%</span>
+                <span class="result-label">weniger manuelle Arbeit</span>
             </div>
-            <div class="ref-card fade-in">
-                <h4>Immobilien LPM</h4>
-                <p>Digitalisierung von Immobilien-Marketing-Prozessen. Automatisierte Schaufenster-Displays und Kunden-Kommunikation.</p>
+            
+            <div class="result-card">
+                <span class="result-number">3x</span>
+                <span class="result-label">schnellere Prozesse</span>
             </div>
-            <div class="ref-card fade-in">
-                <h4>Logo Digitalisierung</h4>
-                <p>Workflow-Automatisierung für Design-Prozesse. Schnellere Abwicklung von Kundenprojekten.</p>
-            </div>
-            <div class="ref-card fade-in">
-                <h4>AWG Digital Hub</h4>
-                <p>Integration von E-Commerce und Warenwirtschaft. Automatisierte Bestell- und Lagerverwaltung.</p>
+            
+            <div class="result-card">
+                <span class="result-number">&lt;5%</span>
+                <span class="result-label">Fehlerquote (statt 50%)</span>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="cta" id="kontakt">
-        <h2>Bereit für den nächsten Level?</h2>
-        <p>Lass uns in einem kostenlosen Erstgespräch herausfinden, wo dein Potenzial liegt. Keine Verpflichtung, nur ehrliche Beratung.</p>
-        <a href="mailto:erhandelice1987@gmail.com" class="btn-white">Termin vereinbaren</a>
+    <section class="section cta-section" id="contact">
+        <div class="cta-content">
+            <span class="section-tag">Loslegen</span>
+            <h2>Bereit für den nächsten Level?</h2>
+            
+            <p>
+                Lass uns in einem kostenlosen Erstgespräch herausfinden, 
+                wo dein Potenzial liegt. Keine Verpflichtung, nur ehrliche Beratung.
+            </p>
+            
+            <a href="mailto:erhandelice1987@gmail.com" class="btn-primary">
+                Termin vereinbaren
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>NexLevelUp</h4>
-                <p>Business-Automatisierung, die funktioniert.<br>KI-Workflows für Unternehmen, die wachsen wollen.</p>
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>NexLevelUp</h3>
+                <p>Business-Automatisierung, die funktioniert. Wir helfen Unternehmen, Zeit zu sparen und zu skalieren – mit maßgeschneiderten KI-Workflows.</p>
             </div>
-            <div class="footer-section">
+            
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="pages/service-ki-loesungen.html">KI-Integration</a></li>
+                    <li><a href="pages/service-workflow-automation.html">Workflow-Automatisierung</a></li>
+                    <li><a href="pages/service-leadgenerierung.html">Lead-Automatisierung</a></li>
+                    <li><a href="pages/services.html">Alle Services</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Unternehmen</h4>
+                <ul>
+                    <li><a href="pages/team.html">Team</a></li>
+                    <li><a href="pages/blog.html">Blog</a></li>
+                    <li><a href="pages/pricing.html">Pricing</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
                 <h4>Kontakt</h4>
-                <p>
-                    Erhan Delice<br>
-                    <a href="mailto:erhandelice1987@gmail.com">erhandelice1987@gmail.com</a><br>
-                    Würzburg, Deutschland
-                </p>
-            </div>
-            <div class="footer-section">
-                <h4>Navigation</h4>
-                <p>
-                    <a href="#home">Start</a><br>
-                    <a href="#problem">Das Problem</a><br>
-                    <a href="#solution">Die Lösung</a><br>
-                    <a href="#process">Prozess</a><br>
-                    <a href="#kontakt">Kontakt</a>
-                </p>
+                <ul>
+                    <li><a href="mailto:erhandelice1987@gmail.com">erhandelice1987@gmail.com</a></li>
+                    <li>Würzburg, Deutschland</li>
+                </ul>
             </div>
         </div>
+        
         <div class="footer-bottom">
             <p>&copy; 2025 NexLevelUp. Alle Rechte vorbehalten.</p>
+            
+            <div class="footer-social">
+                <a href="#" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></a>
+            </div>
         </div>
     </footer>
 
     <script>
-        // GSAP ScrollTrigger Animations
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Fade in elements on scroll
-        gsap.utils.toArray('.fade-in').forEach((element) => {
-            gsap.fromTo(element, 
-                {
-                    opacity: 0,
-                    y: 30
-                },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.8,
-                    ease: 'power2.out',
-                    scrollTrigger: {
-                        trigger: element,
-                        start: 'top 85%',
-                        toggleActions: 'play none none none'
+        // Particle System
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        let particles = [];
+        let mouse = { x: null, y: null };
+        
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.x;
+            mouse.y = e.y;
+        });
+        
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+                this.color = Math.random() > 0.5 ? '#7c3aed' : '#06b6d4';
+            }
+            
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+                
+                // Mouse interaction
+                if (mouse.x != null) {
+                    const dx = mouse.x - this.x;
+                    const dy = mouse.y - this.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 100) {
+                        this.x -= dx * 0.01;
+                        this.y -= dy * 0.01;
                     }
                 }
-            );
+            }
+            
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        
+        function initParticles() {
+            particles = [];
+            const numberOfParticles = Math.min(100, (canvas.width * canvas.height) / 10000);
+            for (let i = 0; i < numberOfParticles; i++) {
+                particles.push(new Particle());
+            }
+        }
+        
+        function connectParticles() {
+            for (let a = 0; a < particles.length; a++) {
+                for (let b = a; b < particles.length; b++) {
+                    const dx = particles[a].x - particles[b].x;
+                    const dy = particles[a].y - particles[b].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 100) {
+                        ctx.strokeStyle = `rgba(124, 58, 237, ${0.1 - distance/1000})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[a].x, particles[a].y);
+                        ctx.lineTo(particles[b].x, particles[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+        
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+            }
+            
+            connectParticles();
+            requestAnimationFrame(animateParticles);
+        }
+        
+        initParticles();
+        animateParticles();
+        
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Animate elements on scroll
+        gsap.utils.toArray('.service-card').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 85%',
+                    toggleActions: 'play none none none'
+                },
+                opacity: 0,
+                y: 50,
+                duration: 0.6,
+                delay: i * 0.1
+            });
         });
-
-        // Hero content animation on load
+        
+        gsap.utils.toArray('.process-step').forEach((step, i) => {
+            gsap.from(step, {
+                scrollTrigger: {
+                    trigger: step,
+                    start: 'top 85%',
+                    toggleActions: 'play none none none'
+                },
+                opacity: 0,
+                y: 30,
+                duration: 0.6,
+                delay: i * 0.15
+            });
+        });
+        
+        gsap.utils.toArray('.result-card').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 85%',
+                    toggleActions: 'play none none none'
+                },
+                opacity: 0,
+                scale: 0.9,
+                duration: 0.6,
+                delay: i * 0.15
+            });
+        });
+        
+        // Hero content animation
         gsap.from('.hero-content', {
             opacity: 0,
-            y: 50,
-            duration: 1.2,
-            ease: 'power3.out',
-            delay: 0.3
+            y: 30,
+            duration: 1,
+            delay: 0.3,
+            ease: 'power3.out'
         });
-
-        // Smooth scroll for navigation links
+        
+        // Smooth scroll for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -760,6 +1332,16 @@
                     });
                 }
             });
+        });
+        
+        // Navigation background on scroll
+        const nav = document.querySelector('.nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(10, 10, 15, 0.95)';
+            } else {
+                nav.style.background = 'rgba(10, 10, 15, 0.8)';
+            }
         });
     </script>
 </body>
