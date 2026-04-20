@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="NexLevelUp automatisiert dein Business mit KI-Workflows. Spezialisiert auf n8n, Make.com und ChatGPT-Integrationen für Unternehmen. Maßgeschneiderte Automatisierungslösungen.">
-    <meta name="keywords" content="Business Automatisierung, KI Workflows, n8n, Make.com, ChatGPT Integration, Workflow Automatisierung, Deutschland">
+    <meta name="description" content="NexLevelUp bietet digitale Mitarbeiter für E-Mail, Vertrieb und Administration. KI-gestützte Automatisierung mit persönlichem Touch.">
+    <meta name="keywords" content="Digitale Mitarbeiter, KI Assistent, E-Mail Automatisierung, Vertriebsautomatisierung, virtuelle Assistenz, Business Automatisierung">
     <meta name="author" content="NexLevelUp - Erhan Delice">
     <meta name="robots" content="index, follow">
     <!-- Canonical -->
@@ -12,17 +12,11 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://nexlevelup.de/">
-    <meta property="og:title" content="NexLevelUp | Business-Automatisierung die funktioniert">
-    <meta property="og:description" content="Wir automatisieren dein Business mit KI-Workflows. Maßgeschneiderte Lösungen mit n8n, Make.com und ChatGPT.">
-    <meta property="og:image" content="https://nexlevelup.de/assets/images/og-image.jpg">
+    <meta property="og:title" content="NexLevelUp | Dein digitales Team">
+    <meta property="og:description" content="Digitale Mitarbeiter für E-Mail, Vertrieb und Administration. Arbeitet 24/7, müde wird er nie.">
     <meta property="og:locale" content="de_DE">
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="NexLevelUp | Business-Automatisierung die funktioniert">
-    <meta name="twitter:description" content="Wir automatisieren dein Business mit KI-Workflows.">
-    <meta name="twitter:image" content="https://nexlevelup.de/assets/images/og-image.jpg">
     
-    <title>NexLevelUp | Business-Automatisierung die funktioniert</title>
+    <title>NexLevelUp | Dein digitales Team</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,7 +29,6 @@
     
     <style>
         :root {
-            /* Colors */
             --bg-primary: #0a0a0f;
             --bg-secondary: #12121a;
             --bg-card: rgba(26, 26, 46, 0.6);
@@ -69,8 +62,6 @@
             color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
         h1, h2, h3, h4, h5, h6 {
@@ -85,11 +76,6 @@
             transition: all 0.3s ease;
         }
 
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-
         /* Navigation */
         .nav {
             position: fixed;
@@ -100,9 +86,7 @@
             padding: 1rem 5%;
             background: rgba(10, 10, 15, 0.8);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
-            transition: all 0.3s ease;
         }
 
         .nav-container {
@@ -120,7 +104,6 @@
             background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .nav-links {
@@ -186,7 +169,6 @@
             width: 25px;
             height: 2px;
             background: var(--text-primary);
-            transition: all 0.3s ease;
         }
 
         /* Hero Section */
@@ -268,7 +250,6 @@
             background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .hero-description {
@@ -302,21 +283,6 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .btn-primary:hover::before {
-            left: 100%;
         }
 
         .btn-primary:hover {
@@ -362,7 +328,6 @@
             background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .hero-stat-label {
@@ -408,49 +373,126 @@
             line-height: 1.7;
         }
 
-        /* Social Proof */
-        .social-proof {
+        /* Digital Team Section */
+        .team-section {
             background: var(--bg-secondary);
-            padding: 60px 5%;
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
         }
 
-        .social-proof-content {
-            max-width: 1400px;
+        .team-grid {
+            max-width: 1200px;
             margin: 0 auto;
-            text-align: center;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
         }
 
-        .social-proof-text {
-            color: var(--text-muted);
+        .team-member {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-member::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .team-member:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .team-member:hover::before {
+            transform: scaleX(1);
+        }
+
+        .team-avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(6, 182, 212, 0.2));
+            border: 2px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover .team-avatar {
+            border-color: var(--accent-purple);
+            transform: scale(1.1);
+        }
+
+        .team-member h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .team-role {
+            color: var(--accent-cyan);
+            font-weight: 600;
             font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .team-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
             margin-bottom: 1.5rem;
         }
 
-        .logos-grid {
+        .team-skills {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 3rem;
             flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
         }
 
-        .logo-item {
-            opacity: 0.5;
-            filter: grayscale(100%);
-            transition: all 0.3s ease;
-            font-weight: 600;
+        .skill-tag {
+            background: rgba(124, 58, 237, 0.1);
+            border: 1px solid var(--border);
             color: var(--text-secondary);
-            font-size: 1.1rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
         }
 
-        .logo-item:hover {
-            opacity: 1;
-            filter: grayscale(0%);
-            color: var(--text-primary);
+        .team-availability {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .team-availability::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
         }
 
         /* Services Grid */
@@ -641,7 +683,6 @@
             background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
             display: block;
             margin-bottom: 0.5rem;
         }
@@ -711,7 +752,6 @@
             background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
             margin-bottom: 1rem;
         }
 
@@ -740,7 +780,6 @@
         .footer-links a {
             color: var(--text-secondary);
             font-size: 0.9rem;
-            transition: color 0.3s ease;
         }
 
         .footer-links a:hover {
@@ -764,31 +803,12 @@
             font-size: 0.875rem;
         }
 
-        .footer-social {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .footer-social a {
-            width: 40px;
-            height: 40px;
-            background: rgba(124, 58, 237, 0.1);
-            border: 1px solid var(--border);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .footer-social a:hover {
-            background: var(--accent-purple);
-            border-color: var(--accent-purple);
-            transform: translateY(-3px);
-        }
-
         /* Responsive */
         @media (max-width: 1024px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             .process-steps {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -825,8 +845,8 @@
                 justify-content: center;
             }
 
-            .hero-stats {
-                gap: 2rem;
+            .team-grid {
+                grid-template-columns: 1fr;
             }
 
             .services-grid {
@@ -851,18 +871,6 @@
                 text-align: center;
             }
         }
-
-        /* Scroll Animations */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
     </style>
 </head>
 <body>
@@ -872,12 +880,12 @@
             <a href="index.html" class="nav-logo">NexLevelUp</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="pages/services.html">Services</a></li>
+                <li><a href="#team">Dein Team</a></li>
+                <li><a href="#services">Services</a></li>
                 <li><a href="pages/pricing.html">Pricing</a></li>
-                <li><a href="pages/team.html">Team</a></li>
                 <li><a href="pages/blog.html">Blog</a></li>
             </ul>
-            <a href="#contact" class="nav-cta">Kostenloses Gespräch</a>
+            <a href="#contact" class="nav-cta">Team kennenlernen</a>
             <button class="mobile-menu-toggle" aria-label="Menu">
                 <span></span>
                 <span></span>
@@ -893,24 +901,23 @@
         
         <div class="hero-content">
             <div class="hero-badge">
-                KI-Automatisierung für Unternehmen
+                Dein digitales Team
             </div>
             
             <h1>
-                Lass Maschinen die
+                Stelle ein Team ein,
                 <br>
-                <span class="gradient-text">langweilige Arbeit</span> machen
+                das <span class="gradient-text">nie müde wird</span>
             </h1>
             
             <p class="hero-description">
-                Wir automatisieren dein Business mit intelligenten Workflows. 
-                Spezialisiert auf n8n, Make.com und ChatGPT-Integrationen – 
-                maßgeschneidert für deine Prozesse.
+                Unsere digitalen Mitarbeiter übernehmen E-Mails, Vertrieb und Administration – 
+                24/7 verfügbar, immer höflich, nie krank. Du konzentrierst dich aufs Wesentliche.
             </p>
             
             <div class="hero-cta-group">
-                <a href="#contact" class="btn-primary">
-                    Erstgespräch buchen
+                <a href="#team" class="btn-primary">
+                    Team kennenlernen
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
@@ -922,31 +929,103 @@
             
             <div class="hero-stats">
                 <div class="hero-stat">
-                    <div class="hero-stat-number">150+</div>
-                    <div class="hero-stat-label">Workflows erstellt</div>
+                    <div class="hero-stat-number">24/7</div>
+                    <div class="hero-stat-label">Verfügbarkeit</div>
                 </div>
                 <div class="hero-stat">
-                    <div class="hero-stat-number">50+</div>
-                    <div class="hero-stat-label">Kunden</div>
+                    <div class="hero-stat-number">3</div>
+                    <div class="hero-stat-label">Digitale Mitarbeiter</div>
                 </div>
                 <div class="hero-stat">
-                    <div class="hero-stat-number">4.9/5</div>
-                    <div class="hero-stat-label">Kundenbewertung</div>
+                    <div class="hero-stat-number">0€</div>
+                    <div class="hero-stat-label">Krankentage</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Social Proof -->
-    <section class="social-proof">
-        <div class="social-proof-content">
-            <p class="social-proof-text">Vertraut von Teams bei</p>
-            
-            <div class="logos-grid">
-                <div class="logo-item">Das Layout</div>
-                <div class="logo-item">Immobilien LPM</div>
-                <div class="logo-item">Logo Digitalisierung</div>
-                <div class="logo-item">AWG Digital Hub</div>
+    <!-- Digital Team Section -->
+    <section class="section team-section" id="team">
+        <div class="section-header">
+            <span class="section-tag">Dein digitales Team</span>
+            <h2>Lerne deine neuen Kollegen kennen</h2>
+            <p class="section-description">
+                Drei spezialisierte KI-Assistenten, die rund um die Uhr für dich arbeiten. 
+                Sie kennen keine Feierabende, keine Urlaube, keine schlechten Tage.
+            </p>
+        </div>
+        
+        <div class="team-grid">
+            <!-- Team Member 1 -->
+            <div class="team-member">
+                <div class="team-avatar">📧</div>
+                
+                <h3>Emma</h3>
+                <p class="team-role">E-Mail-Managerin</p>
+                
+                <p class="team-description">
+                    Emma liest, sortiert und beantwortet deine E-Mails. Sie erkennt Prioritäten, 
+                    fasst lange Nachrichten zusammen und leitet Anfragen an die richtigen Stellen weiter.
+                </p>
+                
+                <div class="team-skills">
+                    <span class="skill-tag">Posteingang</span>
+                    <span class="skill-tag">Priorisierung</span>
+                    <span class="skill-tag">Zusammenfassung</span>
+                    <span class="skill-tag">Spam-Filter</span>
+                </div>
+                
+                <div class="team-availability">
+                    Immer erreichbar
+                </div>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="team-member">
+                <div class="team-avatar">🎯</div>
+                
+                <h3>Victor</h3>
+                <p class="team-role">Vertriebsassistent</p>
+                
+                <p class="team-description">
+                    Victor qualifiziert Leads, pflegt dein CRM und bereitet Gespräche vor. 
+                    Er recherchiert Kontakte, erstellt Angebote und folgt Opportunities nach.
+                </p>
+                
+                <div class="team-skills">
+                    <span class="skill-tag">Lead-Qualifizierung</span>
+                    <span class="skill-tag">CRM-Pflege</span>
+                    <span class="skill-tag">Recherche</span>
+                    <span class="skill-tag">Angebote</span>
+                </div>
+                
+                <div class="team-availability">
+                    Immer erreichbar
+                </div>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="team-member">
+                <div class="team-avatar">📋</div>
+                
+                <h3>Anna</h3>
+                <p class="team-role">Administrative Assistentin</p>
+                
+                <p class="team-description">
+                    Anna kümmert sich um Terminplanung, Dokumentenmanagement und Recherchen. 
+                    Sie erinnert an Fristen, erstellt Berichte und hält deine Daten organisiert.
+                </p>
+                
+                <div class="team-skills">
+                    <span class="skill-tag">Terminplanung</span>
+                    <span class="skill-tag">Dokumente</span>
+                    <span class="skill-tag">Recherche</span>
+                    <span class="skill-tag">Berichte</span>
+                </div>
+                
+                <div class="team-availability">
+                    Immer erreichbar
+                </div>
             </div>
         </div>
     </section>
@@ -954,67 +1033,49 @@
     <!-- Services Section -->
     <section class="section" id="services">
         <div class="section-header">
-            <span class="section-tag">Unsere Services</span>
-            <h2>Was wir für dich automatisieren</h2>
+            <span class="section-tag">Was sie können</span>
+            <h2>Services deines digitalen Teams</h2>
             <p class="section-description">
-                Von einfachen Workflows bis zu komplexen Integrationen – 
-                wir finden die perfekte Lösung für deine Anforderungen.
+                Jeder Mitarbeiter bringt spezialisierte Fähigkeiten mit. 
+                Gemeinsam decken sie die wichtigsten administrativen Bereiche ab.
             </p>
         </div>
         
         <div class="services-grid">
             <div class="service-card">
-                <div class="service-icon">🤖</div>
-                <h3>KI-Integration</h3>
-                <p>ChatGPT, Claude und andere KI-Modelle nahtlos in deine Workflows integrieren. Intelligente Textverarbeitung, Klassifizierung und Automatisierung.</p>
-                <a href="pages/service-ki-loesungen.html" class="service-link">
-                    Mehr erfahren →
-                </a>
+                <div class="service-icon">✉️</div>
+                <h3>E-Mail-Automatisierung</h3>
+                <p>Automatisches Lesen, Kategorisieren und Beantworten von E-Mails. Priorisierung von Kundenanfragen und Weiterleitung an Fachabteilungen.</p>
             </div>
             
             <div class="service-card">
-                <div class="service-icon">⚙️</div>
-                <h3>Workflow-Automatisierung</h3>
-                <p>Wiederkehrende Aufgaben mit n8n, Make.com und Zapier automatisieren. Zeit sparen und Fehler minimieren durch intelligente Prozessketten.</p>
-                <a href="pages/service-workflow-automation.html" class="service-link">
-                    Mehr erfahren →
-                </a>
+                <div class="service-icon">🎣</div>
+                <h3>Lead-Generierung</div>
+                <p>Kontinuierliche Suche nach potenziellen Kunden, Qualifizierung nach festen Kriterien und Bereitstellung in deinem CRM-System.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">📅</div>
+                <h3>Terminmanagement</h3>
+                <p>Koordination von Terminen, Versand von Erinnerungen, Vorbereitung von Gesprächsunterlagen und Nachbereitung.</p>
             </div>
             
             <div class="service-card">
                 <div class="service-icon">📊</div>
-                <h3>Daten-Hubs</h3>
-                <p>Zentrale Datenverwaltung mit Airtable, Notion oder Datenbanken. Informationen aus verschiedenen Quellen zusammenführen und nutzbar machen.</p>
-                <a href="pages/services.html" class="service-link">
-                    Mehr erfahren →
-                </a>
+                <h3>Recherche & Analyse</h3>
+                <p>Recherche zu Kunden, Märkten und Wettbewerbern. Erstellung von Marktübersichten und Entscheidungsgrundlagen.</p>
             </div>
             
             <div class="service-card">
-                <div class="service-icon">🎯</div>
-                <h3>Lead-Automatisierung</h3>
-                <p>Von der ersten Kontaktaufnahme bis zur qualifizierten Übergabe an den Vertrieb. Lead-Generierung und -Pflege vollständig automatisiert.</p>
-                <a href="pages/service-leadgenerierung.html" class="service-link">
-                    Mehr erfahren →
-                </a>
-            </div>
-            
-            <div class="service-card">
-                <div class="service-icon">💬</div>
-                <h3>Kundenservice-Automatisierung</h3>
-                <p>24/7 verfügbare Chatbots und Voice Agents. Antworten auf häufige Fragen automatisch und komplexere Anliegen an Menschen eskalieren.</p>
-                <a href="pages/service-kundenservice.html" class="service-link">
-                    Mehr erfahren →
-                </a>
+                <div class="service-icon">📄</div>
+                <h3>Dokumentenmanagement</h3>
+                <p>Sortierung, Verschlagwortung und Ablage von Dokumenten. Extraktion von Informationen und Erstellung von Zusammenfassungen.</p>
             </div>
             
             <div class="service-card">
                 <div class="service-icon">📈</div>
-                <h3>Buchhaltungsautomatisierung</h3>
-                <p>Rechnungen, Belege und Zahlungsabwicklung automatisch verarbeiten. Integration mit DATEV, Lexware und anderen Systemen.</p>
-                <a href="pages/service-buchhaltung.html" class="service-link">
-                    Mehr erfahren →
-                </a>
+                <h3>Reporting</h3>
+                <p>Automatische Erstellung von Berichten zu Leads, E-Mails und Aktivitäten. Regelmäßige Updates und Dashboards.</p>
             </div>
         </div>
     </section>
@@ -1022,10 +1083,11 @@
     <!-- Process Section -->
     <section class="section process-section">
         <div class="section-header">
-            <span class="section-tag">Unser Prozess</span>
-            <h2>So funktioniert's</h2>
+            <span class="section-tag">So funktioniert's</span>
+            <h2>Dein Team in 4 Schritten</h2>
             <p class="section-description">
-                Keine 0815-Lösungen. Jeder Workflow ist so individuell wie dein Business.
+                Keine komplexe Einstellung. Wir richten dein digitales Team ein 
+                und du startest innerhalb weniger Tage.
             </p>
         </div>
         
@@ -1033,36 +1095,36 @@
             <div class="process-step">
                 <span class="step-number">01</span>
                 <div class="step-content">
-                    <div class="step-icon">🔍</div>
-                    <h3>Analyse</h3>
-                    <p>Wir identifizieren deine Zeitfresser und Potenziale in einem kostenlosen Erstgespräch.</p>
+                    <div class="step-icon">🤝</div>
+                    <h3>Kennenlernen</h3>
+                    <p>Wir besprechen deine Bedürfnisse und welche Aufgaben dein digitales Team übernehmen soll.</p>
                 </div>
             </div>
             
             <div class="process-step">
                 <span class="step-number">02</span>
                 <div class="step-content">
-                    <div class="step-icon">📋</div>
-                    <h3>Konzeption</h3>
-                    <p>Wir entwerfen den optimalen Workflow mit den passenden Tools und Integrationen.</p>
+                    <div class="step-icon">⚙️</div>
+                    <h3>Einrichtung</h3>
+                    <p>Wir verbinden deine Systeme (E-Mail, CRM, Kalender) und trainieren dein Team anhand deiner Vorgaben.</p>
                 </div>
             </div>
             
             <div class="process-step">
                 <span class="step-number">03</span>
                 <div class="step-content">
-                    <div class="step-icon">🛠️</div>
-                    <h3>Umsetzung</h3>
-                    <p>Wir bauen und testen den Workflow. Du behältst die Kontrolle – wir die Technik.</p>
+                    <div class="step-icon">🚀</div>
+                    <h3>Start</h3>
+                    <p>Dein digitales Team beginnt mit der Arbeit. Du behältst die Kontrolle und gibtst Feedback.</p>
                 </div>
             </div>
             
             <div class="process-step">
                 <span class="step-number">04</span>
                 <div class="step-content">
-                    <div class="step-icon">🚀</div>
+                    <div class="step-icon">📈</div>
                     <h3>Optimierung</h3>
-                    <p>Kontinuierliche Verbesserung und Support, damit deine Automatisierung mitwächst.</p>
+                    <p>Kontinuierliche Verbesserung basierend auf deinem Feedback. Dein Team lernt dazu.</p>
                 </div>
             </div>
         </div>
@@ -1072,26 +1134,26 @@
     <section class="section">
         <div class="section-header">
             <span class="section-tag">Ergebnisse</span>
-            <h2>Konkrete Zahlen</h2>
+            <h2>Was du erwartest</h2>
             <p class="section-description">
-                Was unsere Kunden durch Automatisierung erreichen.
+                Konkrete Zahlen von Unternehmen, die ihr digitales Team bereits einsetzen.
             </p>
         </div>
         
         <div class="results-grid">
             <div class="result-card">
-                <span class="result-number">80%</span>
-                <span class="result-label">weniger manuelle Arbeit</span>
+                <span class="result-number">15h</span>
+                <span class="result-label">pro Woche gespart</span>
             </div>
             
             <div class="result-card">
                 <span class="result-number">3x</span>
-                <span class="result-label">schnellere Prozesse</span>
+                <span class="result-label">schnellere Bearbeitung</span>
             </div>
             
             <div class="result-card">
-                <span class="result-number">&lt;5%</span>
-                <span class="result-label">Fehlerquote (statt 50%)</span>
+                <span class="result-number">98%</span>
+                <span class="result-label">Kundenzufriedenheit</span>
             </div>
         </div>
     </section>
@@ -1100,15 +1162,15 @@
     <section class="section cta-section" id="contact">
         <div class="cta-content">
             <span class="section-tag">Loslegen</span>
-            <h2>Bereit für den nächsten Level?</h2>
+            <h2>Bereit für Verstärkung?</h2>
             
             <p>
-                Lass uns in einem kostenlosen Erstgespräch herausfinden, 
-                wo dein Potenzial liegt. Keine Verpflichtung, nur ehrliche Beratung.
+                Lass uns in einem kostenlosen Gespräch besprechen, 
+                wie dein digitales Team aussehen könnte.
             </p>
             
             <a href="mailto:erhandelice1987@gmail.com" class="btn-primary">
-                Termin vereinbaren
+                Team kennenlernen
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
@@ -1121,25 +1183,23 @@
         <div class="footer-grid">
             <div class="footer-brand">
                 <h3>NexLevelUp</h3>
-                <p>Business-Automatisierung, die funktioniert. Wir helfen Unternehmen, Zeit zu sparen und zu skalieren – mit maßgeschneiderten KI-Workflows.</p>
+                <p>Dein digitales Team für E-Mail, Vertrieb und Administration. Arbeitet 24/7, müde wird es nie.</p>
             </div>
             
             <div class="footer-links">
-                <h4>Services</h4>
+                <h4>Dein Team</h4>
                 <ul>
-                    <li><a href="pages/service-ki-loesungen.html">KI-Integration</a></li>
-                    <li><a href="pages/service-workflow-automation.html">Workflow-Automatisierung</a></li>
-                    <li><a href="pages/service-leadgenerierung.html">Lead-Automatisierung</a></li>
-                    <li><a href="pages/services.html">Alle Services</a></li>
+                    <li><a href="#team">Emma (E-Mail)</a></li>
+                    <li><a href="#team">Victor (Vertrieb)</a></li>
+                    <li><a href="#team">Anna (Admin)</a></li>
                 </ul>
             </div>
             
             <div class="footer-links">
-                <h4>Unternehmen</h4>
+                <h4>Unternehmen>
                 <ul>
-                    <li><a href="pages/team.html">Team</a></li>
-                    <li><a href="pages/blog.html">Blog</a></li>
                     <li><a href="pages/pricing.html">Pricing</a></li>
+                    <li><a href="pages/blog.html">Blog</a></li>
                     <li><a href="#contact">Kontakt</a></li>
                 </ul>
             </div>
@@ -1155,10 +1215,6 @@
         
         <div class="footer-bottom">
             <p>&copy; 2025 NexLevelUp. Alle Rechte vorbehalten.</p>
-            
-            <div class="footer-social">
-                <a href="#" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></a>
-            </div>
         </div>
     </footer>
 
@@ -1166,23 +1222,21 @@
         // Particle System
         const canvas = document.getElementById('particles-canvas');
         const ctx = canvas.getContext('2d');
-        
         let particles = [];
         let mouse = { x: null, y: null };
-        
+
         function resizeCanvas() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         }
-        
+
         resizeCanvas();
         window.addEventListener('resize', resizeCanvas);
-        
         window.addEventListener('mousemove', (e) => {
             mouse.x = e.x;
             mouse.y = e.y;
         });
-        
+
         class Particle {
             constructor() {
                 this.x = Math.random() * canvas.width;
@@ -1192,29 +1246,23 @@
                 this.speedY = Math.random() * 0.5 - 0.25;
                 this.color = Math.random() > 0.5 ? '#7c3aed' : '#06b6d4';
             }
-            
             update() {
                 this.x += this.speedX;
                 this.y += this.speedY;
-                
                 if (this.x > canvas.width) this.x = 0;
                 if (this.x < 0) this.x = canvas.width;
                 if (this.y > canvas.height) this.y = 0;
                 if (this.y < 0) this.y = canvas.height;
-                
-                // Mouse interaction
                 if (mouse.x != null) {
                     const dx = mouse.x - this.x;
                     const dy = mouse.y - this.y;
                     const distance = Math.sqrt(dx * dx + dy * dy);
-                    
                     if (distance < 100) {
                         this.x -= dx * 0.01;
                         this.y -= dy * 0.01;
                     }
                 }
             }
-            
             draw() {
                 ctx.fillStyle = this.color;
                 ctx.beginPath();
@@ -1222,7 +1270,7 @@
                 ctx.fill();
             }
         }
-        
+
         function initParticles() {
             particles = [];
             const numberOfParticles = Math.min(100, (canvas.width * canvas.height) / 10000);
@@ -1230,14 +1278,13 @@
                 particles.push(new Particle());
             }
         }
-        
+
         function connectParticles() {
             for (let a = 0; a < particles.length; a++) {
                 for (let b = a; b < particles.length; b++) {
                     const dx = particles[a].x - particles[b].x;
                     const dy = particles[a].y - particles[b].y;
                     const distance = Math.sqrt(dx * dx + dy * dy);
-                    
                     if (distance < 100) {
                         ctx.strokeStyle = `rgba(124, 58, 237, ${0.1 - distance/1000})`;
                         ctx.lineWidth = 0.5;
@@ -1249,99 +1296,57 @@
                 }
             }
         }
-        
+
         function animateParticles() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
             for (let i = 0; i < particles.length; i++) {
                 particles[i].update();
                 particles[i].draw();
             }
-            
             connectParticles();
             requestAnimationFrame(animateParticles);
         }
-        
+
         initParticles();
         animateParticles();
-        
+
         // GSAP Animations
         gsap.registerPlugin(ScrollTrigger);
-        
-        // Animate elements on scroll
+
+        gsap.utils.toArray('.team-member').forEach((member, i) => {
+            gsap.from(member, {
+                scrollTrigger: { trigger: member, start: 'top 85%' },
+                opacity: 0,
+                y: 50,
+                duration: 0.6,
+                delay: i * 0.2
+            });
+        });
+
         gsap.utils.toArray('.service-card').forEach((card, i) => {
             gsap.from(card, {
-                scrollTrigger: {
-                    trigger: card,
-                    start: 'top 85%',
-                    toggleActions: 'play none none none'
-                },
+                scrollTrigger: { trigger: card, start: 'top 85%' },
                 opacity: 0,
                 y: 50,
                 duration: 0.6,
                 delay: i * 0.1
             });
         });
-        
-        gsap.utils.toArray('.process-step').forEach((step, i) => {
-            gsap.from(step, {
-                scrollTrigger: {
-                    trigger: step,
-                    start: 'top 85%',
-                    toggleActions: 'play none none none'
-                },
-                opacity: 0,
-                y: 30,
-                duration: 0.6,
-                delay: i * 0.15
-            });
-        });
-        
-        gsap.utils.toArray('.result-card').forEach((card, i) => {
-            gsap.from(card, {
-                scrollTrigger: {
-                    trigger: card,
-                    start: 'top 85%',
-                    toggleActions: 'play none none none'
-                },
-                opacity: 0,
-                scale: 0.9,
-                duration: 0.6,
-                delay: i * 0.15
-            });
-        });
-        
-        // Hero content animation
+
         gsap.from('.hero-content', {
             opacity: 0,
             y: 30,
             duration: 1,
-            delay: 0.3,
-            ease: 'power3.out'
+            delay: 0.3
         });
-        
-        // Smooth scroll for navigation
+
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
-        });
-        
-        // Navigation background on scroll
-        const nav = document.querySelector('.nav');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                nav.style.background = 'rgba(10, 10, 15, 0.95)';
-            } else {
-                nav.style.background = 'rgba(10, 10, 15, 0.8)';
-            }
         });
     </script>
 </body>
